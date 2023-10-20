@@ -3,6 +3,20 @@
 <div class="main-content">
     <div class="wrapper">
         <h1>UPDATE CATEGORY</h1><br>
+
+        <?php
+        // Verificar el id a actualizar
+        if(isset($_GET['id'])) {
+            // Obtener el id 
+            echo "Getting the dataaaaaaaaaaa";
+        } else {
+            // Redirigir a la pagina de categorias
+            header('Location:'.SITEURL.'admin/manage-category.php');
+        }
+
+
+        ?>
+
         <form action="" method="POST" enctype="multipart/form-data">
             <table>
                 <tr>

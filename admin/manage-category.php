@@ -93,7 +93,7 @@
                         <td><?php echo $featured; ?></td>
                         <td><?php echo $active ?></td>
                         <td>
-                            <a href="<?php echo SITEURL; ?>admin/update-category.php" class="btn-secondary">Update</a>&nbsp;&nbsp;&nbsp;
+                            <a href="<?php echo SITEURL; ?>admin/update-category.php?id=<?php echo $id; ?>" class="btn-secondary">Update</a>&nbsp;&nbsp;&nbsp;
                             <a href="<?php echo SITEURL; ?>admin/delete-category.php?id=<?php echo $id; ?>&image_name=<?php echo $image_name; ?>" class="btn-terciary">Delete</a>
                         </td>
                     </tr>

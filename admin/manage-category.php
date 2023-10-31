@@ -12,7 +12,8 @@
             'add' => 'add',
             'delete' => 'delete',
             'update' => 'update',
-            'remove' => 'remove'
+            'remove' => 'remove',
+            'no-category-found' => 'no-category-found'
         );
 
         foreach ($messages as $key => $value) {

@@ -5,13 +5,13 @@
 -->
 <div class="main-content">
     <div class="wrapper">
-        <h1>FOOD</h1>
+        <h1>MANAGE FOOD</h1>
 
         <br>
         <!--  
             * BOTON AGREGAR ADMIN
         -->
-        <a href="#" class="btn-primary">Add Food</a>
+        <a href="<?php echo SITEURL; ?>admin/add-food.php" class="btn-primary">Add Food</a>
         
         <br><br>
         <table class="tbl-full">

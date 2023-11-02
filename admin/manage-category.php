@@ -5,7 +5,7 @@
 -->
 <div class="main-content">
     <div class="wrapper">
-        <h1>CATEGORY</h1>
+        <h1>MANAGE CATEGORY</h1>
 
         <?php
         $messages = array(
@@ -13,7 +13,9 @@
             'delete' => 'delete',
             'update' => 'update',
             'remove' => 'remove',
-            'no-category-found' => 'no-category-found'
+            'no-category-found' => 'no-category-found',
+            'upload' => 'upload',
+            'failed-remove' => 'failed-remove'
         );
 
         foreach ($messages as $key => $value) {

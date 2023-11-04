@@ -185,11 +185,22 @@
 
             /* 3.  Insertar la info en la BD */
             // Crear la consulta SQL
-            $sql2 = "INSERT INTO tbl_food SET title='$title', description='$description', price='$price', image_name='$image_name',  ";
+            $sql2 = "INSERT INTO tbl_food SET title='$title', description='$description', price=$price, image_name='$image_name', category_id=$category, featured='$featured', active='$active'";
 
+            // Ejecutar la consulta
+            $res2 = mysqli_query($conn, $sql2);
 
-
-            // 4. Redirigir a la pagina y mostrar el mensaje de confirmacion
+            // Verificar si la informacion fue insertada en la BD
+            /* 4.  Redirigir a la pagina y mostrar el mensaje de confirmacion */
+            if($res2 == true) {
+                // Exito.
+                $_SESSION['add'] = "<div class='success'>Productos agregados con exito.</div>";
+                header('Location:'.SITEURL.'admin/manage-food.php');
+            } else {
+                // Error.
+                $_SESSION['add'] = "<div class='error'>Fallo al agregar el producto.</div>";
+                header('Location:'.SITEURL.'admin/manage-food.php');
+            }
             
         }
         

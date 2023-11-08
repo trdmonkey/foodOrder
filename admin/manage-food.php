@@ -12,7 +12,7 @@
             * BOTON AGREGAR ADMIN
         -->
         <a href="<?php echo SITEURL; ?>admin/add-food.php" class="btn-primary">Add Food</a>
-        <br>
+        <br><br>
         <!-- MENSAJES -->
         <?php
         $messages = array(
@@ -90,7 +90,7 @@
                         <td><?php echo $active; ?></td>                        
                         <td>
                             <a href="#" class="btn-secondary">Update</a>&nbsp;&nbsp;&nbsp;
-                            <a href="#" class="btn-terciary">Delete</a>
+                            <a href="./delete-food.php?id=<?= $id; ?>&image_name=<?= $image_name; ?>" class="btn-terciary">Delete</a>
                         </td>
                     </tr>
             <?php

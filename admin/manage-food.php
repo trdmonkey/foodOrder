@@ -16,7 +16,10 @@
         <!-- MENSAJES -->
         <?php
         $messages = array(
-            'add' => 'add'
+            'add' => 'add',
+            'delete' => 'delete',
+            'upload' => 'upload',
+            'unauthorize' => 'unauthorize'
         );
 
         foreach ($messages as $key => $value) {
@@ -30,7 +33,20 @@
         /* if(isset($_SESSION['add'])) {
             echo $_SESSION['add'];
             unset($_SESSION['add']);
-        } */
+        } 
+        if(isset($_SESSION['delete'])) {
+            echo $_SESSION['delete'];
+            unset($_SESSION['delete']);
+        }
+        if(isset($_SESSION['upload'])) {
+            echo $_SESSION['upload'];
+            unset($_SESSION['upload']);
+        }
+        if(isset($_SESSION['unauthorize'])) {
+            echo $_SESSION['unauthorize'];
+            unset($_SESSION['unauthorize']);
+        }
+        */
         ?>
         <br>
         <table class="tbl-full">
@@ -89,7 +105,7 @@
                         <td><?php echo $featured; ?></td>
                         <td><?php echo $active; ?></td>                        
                         <td>
-                            <a href="#" class="btn-secondary">Update</a>&nbsp;&nbsp;&nbsp;
+                            <a href="<?php echo SITEURL; ?>admin/update-food.php?id=<?php echo $id; ?>" class="btn-secondary">Update</a>&nbsp;&nbsp;&nbsp;
                             <a href="./delete-food.php?id=<?= $id; ?>&image_name=<?= $image_name; ?>" class="btn-terciary">Delete</a>
                         </td>
                     </tr>

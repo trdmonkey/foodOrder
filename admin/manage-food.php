@@ -19,7 +19,9 @@
             'add' => 'add',
             'delete' => 'delete',
             'upload' => 'upload',
-            'unauthorize' => 'unauthorize'
+            'unauthorize' => 'unauthorize',
+            'remove-failed' => 'remove-failed',
+            'update' => 'update'
         );
 
         foreach ($messages as $key => $value) {
@@ -45,6 +47,10 @@
         if(isset($_SESSION['unauthorize'])) {
             echo $_SESSION['unauthorize'];
             unset($_SESSION['unauthorize']);
+        }
+        if(isset($_SESSION['remove-failed'])) {
+            echo $_SESSION['remove-failed'];
+            unset($_SESSION['remove-failed']);
         }
         */
         ?>

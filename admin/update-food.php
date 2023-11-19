@@ -220,9 +220,11 @@
                                 die();
                             }
                         }
+                    } else {
+                        $image_name = $current_image; // Para cuando la imagen no esta disponible    
                     }
                 } else {
-                    $image_name = $current_image;
+                    $image_name = $current_image; // Para cuando el usuario no ha presinado el boton de upload image
                 }
                 /* 
                     * 4.  Actualizar la informacion en la BD 

@@ -17,40 +17,76 @@
         <table class="tbl-full">
             <tr>
                 <th>S.N.</th>
-                <th>Full Name</th>
-                <th>Username</th>
+                <th>Food</th>
+                <th>Price</th>
+                <th>Qty.</th>
+                <th>Total</th>
+                <th>Order Date</th>
+                <th>Status</th>
+                <th>Customer Name</th>
+                <th>Contact</th>
+                <th>Email</th>
+                <th>Address</th>
                 <th>Actions</th>
             </tr>
+            <?php
+            
+            // Obtener todas las ordenes de la base de datos
+            $sql = "SELECT * FROM tbl_order";
 
+            // Ejecutar la consulta
+            $res = mysqli_query($conn, $sql);
+
+            // Contar los registros
+            $count = mysqli_num_rows($res);
+
+            // Verificar si hay registros
+            if($count>0) {
+
+                // Si hay ordenes
+                while($row=mysqli_fetch_assoc($res)) {
+
+                    /*  
+                        * Obtener todos los detalles de las ordenes
+                    */
+                    $id = $row['id'];
+                    $food = $row['food'];
+                    $price = $row['price'];
+                    $qty = $row['qty'];
+                    $total = $row['total'];
+                    $order_date = $row['order_date'];
+                    $status = $row['status'];
+                    $customer_name = $row['customer_name'];
+                    $customer_contact = $row['customer_contact'];
+                    $customer_email = $row['customer_email'];
+                    $customer_address = $row['customer_address'];
+
+                }
+
+            } else {
+
+                // No hay ordenes
+                echo "<tr><td colspan='12' class='error'>Ordenes no disponibles.</td></tr>";
+
+            }
+
+            ?>
             <tr>
                 <td>1.</td>
-                <td>Jorge Luis</td>
-                <td>trdmonkey</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
                 <td>
-                    <a href="#" class="btn-secondary">Update</a>&nbsp;&nbsp;&nbsp;
-                    <a href="#" class="btn-terciary">Delete</a>
+                    <a href="#" class="btn-secondary">Update Order</a>
                 </td>
-            </tr>
-
-            <tr>
-                <td>1.</td>
-                <td>Jorge Luis</td>
-                <td>trdmonkey</td>
-                <td>
-                    <a href="#" class="btn-secondary">Update</a>&nbsp;&nbsp;&nbsp;
-                    <a href="#" class="btn-terciary">Delete</a>
-                </td>
-            </tr>
-
-            <tr>
-                <td>1.</td>
-                <td>Jorge Luis</td>
-                <td>trdmonkey</td>
-                <td>
-                    <a href="#" class="btn-secondary">Update</a>&nbsp;&nbsp;&nbsp;
-                    <a href="#" class="btn-terciary">Delete</a>
-                </td>
-            </tr>
+            </tr>            
         </table>
 
     </div>

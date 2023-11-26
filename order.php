@@ -143,11 +143,11 @@ if(isset($_GET['food_id'])) {
             // Verificar si la consulta se ejecuto
             if($res2==true) {
                 // Consulta ejecutada
-                $_SESSION['order'] = "<div class='success'>Su PEDIDO ha sido confirmado con exito.</div>";
+                $_SESSION['order'] = "<div class='success text-center'>Su PEDIDO ha sido confirmado con exito.</div>";
                 header('Location:'.SITEURL);
             } else {
                 // Fallo en la consulta
-                $_SESSION['order'] = "<div class='error'>Su pedido no ha sido confirmado.</div>";
+                $_SESSION['order'] = "<div class='error text-center'>Su pedido no ha sido confirmado.</div>";
                 header('Location:'.SITEURL);
             }
         } else {

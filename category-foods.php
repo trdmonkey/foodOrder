@@ -56,6 +56,8 @@ if(isset($_GET['category_id'])) {
         if($count>0) {
             // Si
             while($row2=mysqli_fetch_assoc($res2)) {
+
+                $id = $row2['id'];
                 $title = $row2['title'];
                 $price = $row2['price'];
                 $description = $row2['description'];

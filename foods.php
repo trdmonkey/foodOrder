@@ -23,7 +23,9 @@
         <?php
 
         // Mostrar los productos que estan activos
-        $sql = "SELECT * FROM tbl_food WHERE active='Yes'";
+        /* $sql = "SELECT * FROM tbl_food WHERE active='Yes'"; */
+        $sql = "SELECT * FROM tbl_food WHERE active='Yes' ORDER BY category_id";
+
 
         // Ejecutar la consulta
         $res = mysqli_query($conn, $sql);

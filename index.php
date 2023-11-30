@@ -101,7 +101,8 @@
             
             <?php
                 // Obtener los productos de la BD que estan active y featured
-                $sql2 = "SELECT * FROM tbl_food WHERE active='Yes' AND featured='Yes' LIMIT 6";
+                $sql2 = "SELECT * FROM tbl_food WHERE active='Yes' AND featured='Yes' ORDER BY category_id LIMIT 6";
+                /* $sql2 = "SELECT * FROM tbl_food WHERE active='Yes' ORDER BY category_id"; */
 
                 // Ejecutar la consulta
                 $res2 = mysqli_query($conn, $sql2);

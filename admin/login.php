@@ -1,36 +1,4 @@
-<?php
-include('../config/constants.php');
-
-if (isset($_POST['submit'])) {
-    // Procesar el login
-    // 1. Obtener la informacion del formulario de login
-
-    $username = $_POST['username'];
-    $password = md5($_POST['password']);
-
-    // 2. Verificar si el usuario y la contraseña de la BD coinciden o no
-    $sql = "SELECT * FROM tbl_admin WHERE username='$username' AND password='$password'";
-
-    // 3. Ejecutar la consulta
-    $res = mysqli_query($conn, $sql);
-
-    // 4. Verficar si hay al menos un registro que contenga coincidencia de usuario y contraseña 
-    $count = mysqli_num_rows($res);
-    if ($count == 1) {
-        // Confirmar ingreso al sistema
-        $_SESSION['login'] = "<div class='success'>Bienvenido al sistema</div>";
-        $_SESSION['user'] = $username;
-
-        // Redirigir a la pagina principal del sistema
-        header('Location:' . SITEURL . 'admin/index.php');
-    } else {
-        // Usuario o contraseña incorrectos
-        $_SESSION['login'] = "<div class='error'>Usuario o contraseña incorrectos.</div>";
-        header('Location:' . SITEURL . 'admin/login.php');
-    }
-    $_SESSION['username'] = $username;
-}
-?>
+<?php include('../config/constants.php'); ?>
 <!doctype html>
 <html lang="en" data-bs-theme="auto">
 
@@ -236,3 +204,39 @@ if (isset($_POST['submit'])) {
 </body>
 
 </html>
+
+<?php 
+if (isset($_POST['submit'])) {
+    // Procesar el login
+    // 1. Obtener la informacion del formulario de login
+
+    /* $username = $_POST['username'];
+    $password = md5($_POST['password']); */
+    $username = mysqli_real_escape_string($conn, $_POST['username']);
+    $password = mysqli_real_escape_string($conn, md5($_POST['password']));
+
+    // 2. Verificar si el usuario y la contraseña de la BD coinciden o no
+    $sql = "SELECT * FROM tbl_admin WHERE username='$username' AND password='$password'";
+
+    // 3. Ejecutar la consulta
+    $res = mysqli_query($conn, $sql);
+
+    // 4. Verficar si hay al menos un registro que contenga coincidencia de usuario y contraseña 
+    $count = mysqli_num_rows($res);
+    if ($count == 1) {
+        // Confirmar ingreso al sistema
+        $_SESSION['login'] = "<div class='success'>Bienvenido al sistema</div>";
+        $_SESSION['user'] = $username;
+
+        // Redirigir a la pagina principal del sistema
+        /* header('Location:' . SITEURL . 'admin/index.php'); */
+        echo '<script>window.location.href = "'.SITEURL.'admin/index.php";</script>';
+    } else {
+        // Usuario o contraseña incorrectos
+        $_SESSION['login'] = "<div class='error'>Usuario o contraseña incorrectos.</div>";
+        /* header('Location:' . SITEURL . 'admin/login.php'); */
+        echo '<script>window.location.href = "'.SITEURL.'admin/login.php";</script>';
+    }
+    $_SESSION['username'] = $username;
+}
+?>

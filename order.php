@@ -105,7 +105,7 @@ if(isset($_GET['food_id'])) {
             // SI | Obtener los valores del FORM
             $food = $_POST['food'];
             $price = $_POST['price'];
-            $qty = $_POST['qty'];
+            $qty = mysqli_real_escape_string($conn, $_POST['qty']);
 
             $total = $price * $qty;
 
@@ -113,10 +113,10 @@ if(isset($_GET['food_id'])) {
             $status = "Pedido"; // Pedido, En Camino, Entregado, Cancelado.
 
             // LADO DEL CLIENTE
-            $customer_name = $_POST['full-name'];
-            $customer_contact = $_POST['contact'];
-            $customer_email = $_POST['email'];
-            $customer_address = $_POST['address'];
+            $customer_name = mysqli_real_escape_string($conn, $_POST['full-name']);
+            $customer_contact = mysqli_real_escape_string($conn, $_POST['contact']);
+            $customer_email = mysqli_real_escape_string($conn, $_POST['email']);
+            $customer_address = mysqli_real_escape_string($conn, $_POST['address']);
 
             // date_default_timezone_set('America/Bogota');
             // date.timezone = "America/Bogota";

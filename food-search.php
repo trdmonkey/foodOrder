@@ -6,7 +6,7 @@
         <?php
         
         // Obtener la busqueda de la palabra
-        $search = $_POST['search'];
+        $search = mysqli_real_escape_string($conn, $_POST['search']);  // Evita el SQL Injection
 
         ?>
         <h2>Foods on Your Search <a href="#" class="text-white">"<?= $search; ?>"</a></h2>
@@ -25,6 +25,7 @@
         <?php
 
         // Realizar la busqueda con base en la palabra del input
+        "SELECT * FROM tbl_food WHERE title LIKE '%%' OR description LIKE '%%'";
         $sql = "SELECT * FROM tbl_food WHERE title LIKE '%$search%' OR description LIKE '%$search%'";
 
         // Ejectuar la consulta
